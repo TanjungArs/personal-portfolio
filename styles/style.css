@@ -1,12 +1,12 @@
 :root {
   --bg-primary: #0f172a;
-  --bg-secondary: #111827;
+  --bg-secondary: #25365d;
   --card-bg: #1e293b;
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
 
-  --accent: #38bdf8;
+  --accent: #00b3ffc4;
   --accent-hover: #0ea5e9;
 
   --border: #334155;
@@ -75,14 +75,59 @@ body::before {
   margin: 0 auto;
 }
 
-section {
-  padding: 6rem 0;
+.hero {
+  min-height: calc(100vh - 72px);
+}
+
+.about,
+.skills,
+.projects,
+.experience {
+  padding: 8rem 0;
 }
 
 .section-title {
+  /* font-size: clamp(1.8rem, 3vw, 2.3rem); */
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 3rem;
+
+  letter-spacing: -0.5px;
+
+  margin-bottom: 4rem;
+
+  position: relative;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.centered-title {
+  text-align: center;
+  position: relative;
+}
+
+.centered-title::after {
+  content: "";
+
+  display: block;
+
+  width: 40px;
+  height: 2px;
+
+  margin: 0.3rem auto 0;
+
+  background: rgba(148, 163, 184, 0.35);
+
+  border-radius: 999px;
+}
+
+.about,
+.projects,
+.contact {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(17, 24, 39, 0.5),
+    transparent
+  );
 }
 
 /* =========================
@@ -127,6 +172,30 @@ section {
   font-weight: 500;
 }
 
+.nav-links a.active {
+  color: var(--accent);
+  position: relative;
+
+  color: var(--text-secondary);
+  color: var(--accent);
+
+  transition: 0.3s ease;
+}
+
+.nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: rgba(148, 163, 184, 0.35);
+}
+
 .navbar a {
   color: var(--text-secondary);
   font-weight: 500;
@@ -142,6 +211,10 @@ section {
    HERO
 ========================= */
 
+#hero {
+  scroll-margin-top: 0;
+}
+
 .hero {
   min-height: calc(100vh - 72px);
 
@@ -150,9 +223,44 @@ section {
 }
 
 .hero-greeting {
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  font-size: 1rem;
+  font-weight: 5000;
+  padding-bottom: 1rem;
+}
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  margin-bottom: 2rem;
+
+  padding: 0.75rem 1.2rem;
+
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+
+  color: var(--text-primary);
+
+  font-size: 0.95rem;
+}
+
+.hero-status span {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow: 0 0 12px #22c55e;
 }
 
 .hero-title {
@@ -219,15 +327,123 @@ section {
   object-fit: cover;
 }
 
+.about-title {
+  margin-bottom: 1rem;
+
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
 .about-text {
+  max-width: 600px;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   gap: 1.5rem;
 }
 
 .about-text p {
   color: var(--text-secondary);
   font-size: 1.05rem;
+}
+
+.about-socials {
+  display: flex;
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.about-socials a {
+  width: 48px;
+  height: 48px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  transition: 0.3s ease;
+}
+
+.about-socials a:hover {
+  border-color: var(--accent);
+
+  transform: translateY(-3px);
+}
+.about-socials a::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+
+  transform: translateX(-50%) translateY(6px);
+
+  padding: 0.4rem 0.75rem;
+
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: 0.2s ease;
+
+  z-index: 10;
+}
+
+.about-socials a::before {
+  content: "";
+
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--card-bg);
+
+  opacity: 0;
+
+  transition: 0.2s ease;
+
+  z-index: 10;
+}
+
+.about-socials a:hover::after,
+.about-socials a:hover::before {
+  opacity: 1;
+
+  transform: translateX(-50%) translateY(1%);
+}
+
+.about-icon {
+  object-fit: contain;
+
+  flex-shrink: 0;
+
+  filter: brightness(0) saturate(100%) invert(66%) sepia(12%) saturate(493%)
+    hue-rotate(181deg) brightness(94%) contrast(89%);
+}
+
+.about-socials img {
+  width: 22px;
+  height: 22px;
 }
 
 /* =========================
@@ -297,10 +513,6 @@ section {
 /* =========================
    PROJECTS
 ========================= */
-
-.projects {
-  padding: 6rem 0;
-}
 
 .projects-grid {
   display: grid;
@@ -425,7 +637,7 @@ section {
 .experience .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 
 .experience-card {
@@ -488,12 +700,76 @@ section {
   color: var(--text-secondary);
 }
 
+.timeline {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 9px;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 1.7rem;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 /* =========================
    CONTACT
 ========================= */
 
 .contact {
-  text-align: center;
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+}
+
+.contact-layout {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 2rem;
+
+  align-items: stretch;
+}
+
+.contact-showcase {
+  padding: 3rem;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.08),
+    rgba(99, 102, 241, 0.08)
+  );
+
+  border: 1px solid var(--border);
 }
 
 .contact-item {
@@ -504,32 +780,116 @@ section {
   font-size: 1.05rem;
 }
 
-.social-links {
-  margin-top: 2rem;
-
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-
-  flex-wrap: wrap;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.social-links a {
-  padding: 0.9rem 1.5rem;
+.contact-profile {
+  padding: 3rem;
 
-  border-radius: 12px;
+  background: var(--card-bg);
 
   border: 1px solid var(--border);
 
-  transition: 0.3s ease;
+  border-radius: 24px;
 }
 
-.social-links a:hover {
-  border-color: var(--accent);
+.contact-label {
+  display: inline-block;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.12);
 
   color: var(--accent);
 
-  transform: translateY(-2px);
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  margin-bottom: 1.5rem;
+}
+
+.contact-profile h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+
+  margin-bottom: 0.75rem;
+}
+
+.contact-role {
+  color: var(--accent);
+
+  font-weight: 600;
+
+  margin-bottom: 1.5rem;
+}
+
+.contact-description {
+  max-width: 500px;
+
+  color: var(--text-secondary);
+}
+
+.contact-card {
+  padding: 3rem;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  margin-top: 2rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+
+  filter: brightness(0) saturate(100%) invert(66%) sepia(12%) saturate(493%)
+    hue-rotate(181deg) brightness(94%) contrast(89%);
+}
+
+.contact-info-item a,
+.contact-info-item p {
+  margin: 0;
+
+  color: var(--text-primary);
+}
+
+.contact-info-item {
+  transition: 0.3s ease;
+}
+
+.contact-info-item:hover .contact-icon {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(32%) saturate(4818%)
+    hue-rotate(167deg) brightness(99%) contrast(96%);
+}
+
+.contact-info-item:hover a,
+.contact-info-item:hover p {
+  color: var(--accent);
 }
 
 /* =========================
@@ -563,4 +923,34 @@ main {
   object-fit: contain;
 
   margin-bottom: 1.5rem;
+}
+
+body::before,
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+body::before {
+  top: -200px;
+  right: -150px;
+
+  background: rgba(56, 189, 248, 0.15);
+}
+
+body::after {
+  bottom: -250px;
+  left: -200px;
+
+  background: rgba(99, 102, 241, 0.12);
 }

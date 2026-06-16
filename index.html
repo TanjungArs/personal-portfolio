@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
-  <body>
+  <body id="hero">
     <header class="header">
       <nav class="navbar container">
         <div class="nav-links">
@@ -43,21 +43,25 @@
           </h2>
 
           <p class="hero-description">
-            Informatics graduate with experience in computational research,
-            machine learning, and software development.
+            Informatics graduate with experience in software development,
+            machine learning, and computational research.
           </p>
 
+          <div class="hero-status">
+            <span></span>
+            Open to Software Engineering Opportunities
+          </div>
+
           <div class="hero-actions">
-            <a href="https://github.com/TanjungArs" target="_blank">GitHub</a>
+            <a href="#projects">View Projects</a>
 
             <a
-              href="https://linkedin.com/in/tanjung-arswendo-yudha"
+              href="./resume/resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              LinkedIn
+              My Resume
             </a>
-
-            <a href="./resume/resume.pdf" target="_blank"> Resume </a>
           </div>
         </div>
       </section>
@@ -65,8 +69,6 @@
       <!-- ABOUT -->
       <section id="about" class="about">
         <div class="container">
-          <h2 class="section-title">About Me</h2>
-
           <div class="about-content">
             <div class="about-image">
               <img
@@ -76,6 +78,8 @@
             </div>
 
             <div class="about-text">
+              <h2 class="section-title about-title">About Me</h2>
+
               <p>
                 Informatics graduate with practical experience in software
                 development, machine learning, and computational research. I
@@ -91,6 +95,38 @@
                 focus is on software engineering, backend development, and
                 machine learning applications.
               </p>
+
+              <div class="about-socials">
+                <a href="https://github.com/TanjungArs" data-tooltip="GitHub">
+                  <img
+                    class="about-icon"
+                    src="./images/github.png"
+                    alt="GitHub"
+                  />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/tanjung-arswendo-yudha/"
+                  data-tooltip="LinkedIn"
+                >
+                  <img
+                    class="about-icon"
+                    src="./images/linkedin.png"
+                    alt="LinkedIn"
+                  />
+                </a>
+
+                <a
+                  href="https://hub.docker.com/repositories/tanjungars"
+                  data-tooltip="Docker Hub"
+                >
+                  <img
+                    class="about-icon"
+                    src="./images/docker.png"
+                    alt="Docker Hub"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -99,8 +135,7 @@
       <!-- SKILLS -->
       <section id="skills" class="skills">
         <div class="container">
-          <h2 class="section-title">Skills</h2>
-
+          <h2 class="section-title centered-title">Technical Skills</h2>
           <div class="skills-grid">
             <article class="skill-card">
               <h3>Software Development</h3>
@@ -147,9 +182,8 @@
 
       <!-- PROJECTS -->
       <section id="projects" class="projects">
+        <h2 class="section-title centered-title">Featured Projects</h2>
         <div class="container">
-          <h2 class="section-title">Projects</h2>
-
           <div class="projects-grid">
             <article class="project-card">
               <div class="project-thumbnail">
@@ -258,105 +292,151 @@
 
       <!-- EXPERIENCE -->
       <section id="experience" class="experience">
+        <h2 class="section-title centered-title">Experience</h2>
         <div class="container">
-          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
 
-          <article class="experience-card">
-            <img
-              class="experience-logo"
-              src="./images/BRIN.svg"
-              alt="BRIN Logo"
-            />
-            <div class="experience-content">
-              <h3>
-                Research Intern — National Research and Innovation Agency (BRIN)
-              </h3>
+              <div class="experience-card">
+                <img
+                  class="experience-logo"
+                  src="./images/BRIN.svg"
+                  alt="BRIN Logo"
+                />
 
-              <p class="experience-date">Mar - Aug 2025</p>
+                <div class="experience-content">
+                  <h3>
+                    Research Intern — National Research and Innovation Agency
+                    (BRIN)
+                  </h3>
 
-              <p>
-                Contributed to computational research activities in
-                bioinformatics and machine learning. Participated in the
-                development and evaluation of Transformer-based methods for
-                Multiple Sequence Alignment and supported the deployment of a
-                web-based application for model inference.
-              </p>
-            </div>
-          </article>
+                  <p class="experience-date">Mar - Aug 2025</p>
 
-          <article class="experience-card">
-            <img
-              class="experience-logo"
-              src="./images/logo_uin.webp"
-              alt="PPB Logo"
-            />
-            <div class="experience-content">
-              <h3>IT Helpdesk — Language Development Center</h3>
+                  <p>
+                    Contributed to computational research activities in
+                    bioinformatics and machine learning. Participated in the
+                    development and evaluation of Transformer-based methods for
+                    Multiple Sequence Alignment and supported the deployment of
+                    a web-based application for model inference.
+                  </p>
+                </div>
+              </div>
+            </article>
 
-              <p class="experience-date">Jan - Mar 2025</p>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
 
-              <p>
-                Provided technical support for hardware, software, and network
-                systems. Assisted in troubleshooting user issues and maintaining
-                daily IT operations to ensure service availability and
-                reliability.
-              </p>
-            </div>
-          </article>
+              <div class="experience-card">
+                <img
+                  class="experience-logo"
+                  src="./images/logo_uin.webp"
+                  alt="PPB Logo"
+                />
 
-          <article class="experience-card">
-            <img
-              class="experience-logo-gdg"
-              src="./images/images.jpg"
-              alt="GDGOC"
-            />
-            <div class="experience-content">
-              <h3>Member — Google Developer Group on Campus</h3>
+                <div class="experience-content">
+                  <h3>IT Helpdesk — Language Development Center</h3>
 
-              <p class="experience-date">2024</p>
+                  <p class="experience-date">Jan - Mar 2025</p>
 
-              <p>
-                Provided technical support for hardware, software, and network
-                systems. Assisted in troubleshooting user issues and maintaining
-                daily IT operations to ensure service availability and
-                reliability.
-              </p>
-            </div>
-          </article>
+                  <p>
+                    Provided technical support for hardware, software, and
+                    network systems. Assisted in troubleshooting user issues and
+                    maintaining daily IT operations to ensure service
+                    availability and reliability.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+
+              <div class="experience-card">
+                <img
+                  class="experience-logo-gdg"
+                  src="./images/images.jpg"
+                  alt="GDGOC"
+                />
+
+                <div class="experience-content">
+                  <h3>Member — Google Developer Group on Campus</h3>
+
+                  <p class="experience-date">2024</p>
+
+                  <p>
+                    Provided technical support for hardware, software, and
+                    network systems. Assisted in troubleshooting user issues and
+                    maintaining daily IT operations to ensure service
+                    availability and reliability.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section id="contact" class="contact">
         <div class="container">
-          <h2 class="section-title">Contact</h2>
+          <div class="contact-grid">
+            <!-- LEFT -->
 
-          <p class="contact-item">
-            <a href="https://wa.me/6289638689307"> +62 896-3868-9307 </a>
-          </p>
+            <div class="contact-profile">
+              <p class="contact-label">AVAILABLE FOR OPPORTUNITIES</p>
 
-          <p class="contact-item">
-            <a href="mailto:arswendo123@gmail.com"> arswendo123@gmail.com </a>
-          </p>
+              <h3>Tanjung Arswendo Yudha</h3>
 
-          <p class="contact-item">Tangerang, Indonesia</p>
+              <p class="contact-role">
+                Software Developer & Machine Learning Engineer
+              </p>
 
-          <div class="social-links">
-            <a
-              href="https://hub.docker.com/repositories/tanjungars"
-              target="_blank"
-            >
-              Docker Hub
-            </a>
+              <p class="contact-description">
+                Interested in software engineering, backend development, machine
+                learning, and research-driven projects.
+              </p>
+            </div>
 
-            <a href="https://github.com/TanjungArs" target="_blank"> GitHub </a>
+            <!-- RIGHT -->
 
-            <a
-              href="https://www.linkedin.com/in/tanjung-arswendo-yudha"
-              target="_blank"
-            >
-              LinkedIn
-            </a>
+            <div class="contact-card">
+              <h3>Get In Touch</h3>
+
+              <div class="contact-info">
+                <div class="contact-info-item">
+                  <img
+                    class="contact-icon"
+                    src="./images/email.png"
+                    alt="Email"
+                  />
+
+                  <a href="mailto:arswendo123@gmail.com">
+                    arswendo123@gmail.com
+                  </a>
+                </div>
+
+                <div class="contact-info-item">
+                  <img
+                    class="contact-icon"
+                    src="./images/phone-call.png"
+                    alt="Phone"
+                  />
+
+                  <a href="https://wa.me/6289638689307"> +62 896 3868 9307 </a>
+                </div>
+
+                <div class="contact-info-item">
+                  <img
+                    class="contact-icon"
+                    src="./images/maps-and-flags.png"
+                    alt="Location"
+                  />
+
+                  <p>Tangerang, Indonesia</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
