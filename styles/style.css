@@ -47,6 +47,25 @@ ul {
   list-style: none;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.12),
+    transparent 70%
+  );
+
+  top: -150px;
+  right: -150px;
+
+  z-index: -1;
+}
+
 /* =========================
    GLOBAL
 ========================= */
@@ -249,9 +268,17 @@ section {
   font-size: 1.1rem;
 }
 
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
 .skill-items p {
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
+
+  color: var(--text-secondary);
 }
 
 .skill-items p::before {
@@ -354,7 +381,7 @@ section {
   position: absolute;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.45);
 
   display: flex;
   justify-content: center;
@@ -413,6 +440,13 @@ section {
   transition: 0.3s ease;
 }
 
+.experience-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
 .experience-card:hover {
   transform: translateY(-4px);
 
@@ -424,7 +458,15 @@ section {
   height: 72px;
 
   object-fit: contain;
+  margin-bottom: 1.5rem;
+}
 
+.experience-logo-gdg {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 60%;
+  object-fit: contain;
   margin-bottom: 1.5rem;
 }
 
