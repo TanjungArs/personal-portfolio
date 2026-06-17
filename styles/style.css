@@ -1170,6 +1170,13 @@ body::after {
     gap: 2rem;
   }
 
+  .skill-items p {
+    padding-left: 2rem;
+  }
+  .skill-items p::before {
+    left: 1rem;
+  }
+
   /* Project */
   .projects-grid {
     grid-template-columns: 1fr;
