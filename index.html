@@ -19,8 +19,11 @@
   <body id="hero">
     <header class="header">
       <nav class="navbar container">
+        <div class="nav-brand">
+          <a href="#hero">Tanjung Arswendo Yudha</a>
+        </div>
+
         <div class="nav-links">
-          <a href="#hero"> Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -313,7 +316,9 @@
 
                   <p class="experience-date">Mar - Aug 2025</p>
 
-                  <p>
+                  <button class="experience-toggle">View Details</button>
+
+                  <p class="experience-description">
                     Contributed to computational research activities in
                     bioinformatics and machine learning. Participated in the
                     development and evaluation of Transformer-based methods for
@@ -339,7 +344,8 @@
 
                   <p class="experience-date">Jan - Mar 2025</p>
 
-                  <p>
+                  <button class="experience-toggle">View Details</button>
+                  <p class="experience-description">
                     Provided technical support for hardware, software, and
                     network systems. Assisted in troubleshooting user issues and
                     maintaining daily IT operations to ensure service
@@ -364,7 +370,8 @@
 
                   <p class="experience-date">2024</p>
 
-                  <p>
+                  <button class="experience-toggle">View Details</button>
+                  <p class="experience-description">
                     Provided technical support for hardware, software, and
                     network systems. Assisted in troubleshooting user issues and
                     maintaining daily IT operations to ensure service
@@ -397,6 +404,9 @@
                 learning, and research-driven projects.
               </p>
             </div>
+
+            <!-- CENTER -->
+            <div class="contact-center"></div>
 
             <!-- RIGHT -->
 
@@ -445,7 +455,9 @@
     <footer class="footer">
       <p>&copy; 2026 Tanjung Arswendo Yudha. All rights reserved.</p>
     </footer>
-
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <img src="./images/right-arrow.png" />
+    </button>
     <script src="./scripts/main.js"></script>
   </body>
 </html>
