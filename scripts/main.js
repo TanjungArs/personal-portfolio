@@ -1,12 +1,15 @@
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
+/* =========================
+   ACTIVE NAV LINK
+========================= */
+
 window.addEventListener("scroll", () => {
   let current = "";
 
   sections.forEach((section) => {
     const top = section.offsetTop - 150;
-    const height = section.offsetHeight;
 
     if (window.scrollY >= top) {
       current = section.id;
@@ -22,34 +25,56 @@ window.addEventListener("scroll", () => {
   });
 });
 
-const backToTopBtn = document.getElementById("backToTop");
+/* =========================
+   BACK TO TOP
+========================= */
+
+const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
-    backToTopBtn.classList.add("show");
+  if (window.scrollY > 400) {
+    backToTop.classList.add("show");
   } else {
-    backToTopBtn.classList.remove("show");
+    backToTop.classList.remove("show");
   }
 });
 
-backToTopBtn.addEventListener("click", () => {
+backToTop.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 });
 
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-links");
+
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+
+  navToggle.textContent = navMenu.classList.contains("show") ? "✕" : "☰";
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show");
+    navToggle.textContent = "☰";
+  });
+});
+
 const toggles = document.querySelectorAll(".experience-toggle");
 
-toggles.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
-    const description = toggle.parentElement.querySelector(
-      ".experience-description",
-    );
+toggles.forEach((button) => {
+  button.addEventListener("click", () => {
+    const description = button.nextElementSibling;
 
     description.classList.toggle("show");
 
-    toggle.textContent = description.classList.contains("show")
+    button.textContent = description.classList.contains("show")
       ? "Hide Details"
       : "View Details";
   });
